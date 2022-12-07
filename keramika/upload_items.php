@@ -33,7 +33,9 @@ if(isset($_SESSION['datos_user'])) {
         <select name="itemSize" id="size" class="custom-select">
             <option value="Other">Other</option>
         </select>
-        <input type="file" name="itemPic1" id="itemPic1">
+        <input type="file" name="itemPic1">
+        <input type="file" name="itemPic2">
+        <input type="file" name="itemPic3">
         <button class="btn btn-outline-success w-100 mb-1" type="submit">Upload</button>
     </form>
 
