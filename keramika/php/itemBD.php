@@ -6,18 +6,7 @@
     $color = $_POST["itemColor"];
     $size = $_POST["itemSize"];
 
-    if(isset($_FILES['itemPic1'])){
-        $file=$_FILES['itemPic1'];
-
-        $file_name=$file['name'];
-        echo $file_name;
-        $temp=$file['tmp_name'];
-        echo $temp;
-        $foto='../img/'.$file_name; 
-    
-        move_uploaded_file($temp,$foto);
-    }
-    /*$pic1=$_FILES['itemPic1'];
+    $pic1=$_FILES['itemPic1'];
     $filename1=$pic1['name'];
     $temp=$pic1['tmp_name'];
     $ruta='../img/pots/'.$filename1;
@@ -35,5 +24,5 @@
     $pic3=$_FILES['itemPic3'];
     $filename3=$pic3['name'];
     move_uploaded_file($pic3['tmp_name'],'../img/pots/'.$name.'/'.$filename3);
-    $foto3='img/pots/'.$name.'/'.$filename3;*/
+    $foto3='img/pots/'.$name.'/'.$filename3;
 ?>
