@@ -8,16 +8,26 @@
 
     $pic1=$_FILES['itemPic1'];
     $filename1=$pic1['name'];
-    move_uploaded_file($pic1['tmp_name'],'../img/pots/'.$name.'/'.$filename1);
-    $foto1='img/pots/'.$name.'/'.$filename1;
+    $pic_one='img/pots/'.$name.'/'.$filename1;
+    move_uploaded_file($pic1['tmp_name'],'..'.$pic_one);
+    
 
     $pic2=$_FILES['itemPic2'];
     $filename2=$pic2['name'];
-    move_uploaded_file($pic2['tmp_name'],'../img/pots/'.$name.'/'.$filename2);
-    $foto2='img/pots/'.$name.'/'.$filename2;
+    $pic_two='img/pots/'.$name.'/'.$filename2;
+    move_uploaded_file($pic2['tmp_name'],'..'.$pic_two);
+    
 
     $pic3=$_FILES['itemPic3'];
     $filename3=$pic3['name'];
-    move_uploaded_file($pic3['tmp_name'],'../img/pots/'.$name.'/'.$filename3);
-    $foto3='img/pots/'.$name.'/'.$filename3;
+    $pic_three='img/pots/'.$name.'/'.$filename3;
+    move_uploaded_file($pic3['tmp_name'],'..'.$pic_three);
+
+    if($name == "" || $style == "" || $color == ""||$size == ""){
+        echo '<h1>Please fill in all the fields</h1>';
+        header('Location: ../index.php');
+    }else{
+        $conexion->query("insert into items (`name`, `style`, `color`, `size`, `price`, `pic_one`, `pic_two`, `pic_three`) values ('$name', '$style', '$color', '$size', '800', '$pic_one', '$pic_two', '$pic_three');")or die($conexion->error);
+        header('Location: ../upload_items.php?success=upload_successfully');
+    }
 ?>
